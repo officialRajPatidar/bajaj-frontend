@@ -53,7 +53,14 @@ function App() {
         filteredData = [...filteredData, ...result.alphabets];
       }
 
-      setFilteredResponse(filteredData.join(", ")); // Update filtered response
+      // Remove duplicates
+      filteredData = [...new Set(filteredData)];
+
+      if (!filteredData.length) {
+        setError("No data matched the filters.");
+      } else {
+        setFilteredResponse(filteredData.join(", ")); // Update filtered response
+      }
     } catch (error) {
       console.error("Error:", error);
       setError("Invalid input data or error from the backend.");
