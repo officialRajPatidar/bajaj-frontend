@@ -29,7 +29,7 @@ function App() {
 
     try {
       const parsedData = JSON.parse(inputData); // Try parsing the input data
-      const response = await fetch("http://localhost:8080/bfhl", {
+      const response = await fetch("https://bajaj-backend-rust.vercel.app/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
